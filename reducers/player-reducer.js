@@ -4,6 +4,7 @@ const initialState = {
   direction: 'UP',
   shots: []
 }
+const shotSpeed = 5;
 
 export default function playerReducer(state=initialState, action) {
   switch (action.type) {
@@ -17,16 +18,18 @@ export default function playerReducer(state=initialState, action) {
       const shot = {
         xOne: action.xOne,
         yOne: action.yOne,
-        xTwo: action.xOne,
+        xTwo: action.xTwo,
         yTwo: action.yTwo
       };
       return {...state, shots: [...state.shots, shot]};
 
     case 'MOVE_SHOOT':
       return {...state, shots: state.shots.map((shot) => {
-        return {yOne: shot.yOne - 5, yTwo: shot.yTwo - 5};
+        return {...shot,
+          yOne: shot.yOne - shotSpeed,
+          yTwo: shot.yTwo - shotSpeed};
       })};
-
+      
     default:
       return state;
   }

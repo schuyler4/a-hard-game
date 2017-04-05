@@ -13,15 +13,9 @@ export function changeDirection(direction) {
   };
 }
 
-export function shoot() {
+export function shoot(xOne, yOne, xTwo, yTwo) {
   return {
-    type: 'SHOOT'
-  };
-}
-
-export function moveShoot(xOne, yOne, xTwo, yTwo) {
-  return {
-    type: 'MOVE_SHOOT',
+    type: 'SHOOT',
     xOne,
     yOne,
     xTwo,
@@ -29,9 +23,8 @@ export function moveShoot(xOne, yOne, xTwo, yTwo) {
   };
 }
 
-export function removeShoot(index) {
+export function moveShoot() {
   return {
-    type: 'REMOVE_SHOOT',
-    index
+    type: 'MOVE_SHOOT'
   };
 }
